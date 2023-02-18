@@ -4,8 +4,17 @@ import streamlit as st
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-df = pd.read_csv(r'C:\Users\eoinv\Downloads\plenti\needs.csv')#
-df = df.fillna(' ')
+# df = pd.read_csv(r'C:\Users\eoinv\Downloads\plenti\needs.csv')#
+# df = df.fillna(' ')
+
+needs_dict = {'CONNECTION': ['acceptance', 'affection', 'appreciation', 'belonging', 'cooperation', 'communication', 'closeness', 'community', 'companionship', 'compassion', 'consideration', 'consistency', 'empathy', 'inclusion', 'intimacy', 'love', 'mutuality', 'nurturing', 'respect/self-respect', 'safety', 'security', 'stability', 'support', 'to know and be known', 'to see and be seen', 'to understand and', 'be understood', 'trust', 'warmth'],
+'PHYSICAL WELL-BEING': ['air', 'food', 'movement/exercise', 'rest/sleep', 'sexual expression', 'safety', 'shelter', 'touch', 'water', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+'HONESTY': ['authenticity', 'integrity', 'presence', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+'PLAY': ['joy', 'humor', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+'PEACE': ['beauty', 'communion', 'ease', 'equality', 'harmony', 'inspiration', 'order', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+'AUTONOMY': ['choice', 'freedom', 'independence', 'space', 'spontaneity', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+'MEANING': ['awareness', 'celebration of life', 'challenge', 'clarity', 'competence', 'consciousness', 'contribution', 'creativity', 'discovery', 'efficacy', 'effectiveness', 'growth', 'hope', 'learning', 'mourning', 'participation', 'purpose', 'self-expression', 'stimulation', 'to matter', 'understanding', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']}
+df = pd.DataFrame.from_dict(needs_dict)
 
 def display_col(df, listy):
     for col in df.columns:
@@ -63,7 +72,6 @@ def display_col_contents(df, col, listy):
 
 if "checkbox_clicked" not in st.session_state:    
     st.session_state.checkbox_clicked = False
-
 
 
 listy = []

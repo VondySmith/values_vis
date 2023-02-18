@@ -21,7 +21,7 @@ def display_col(df, listy):
         st.title(col)
         st.session_state.checkbox_clicked = False
         select = st.checkbox(f'I value {col}')#, key=f'{random.randrange(1, 10**3):03}')#, key=random.randrange(111111, 999999, 6))
-        select_alt = st.checkbox(f'I value something related to {col}')#, key=f'{random.randrange(1, 10**3):03}')#, key=random.randrange(111111, 999999, 6))
+        select_alt = st.checkbox(f'Something more specific related to {col}?')#, key=f'{random.randrange(1, 10**3):03}')#, key=random.randrange(111111, 999999, 6))
         
         if select_alt:
 
